@@ -1,0 +1,394 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Assignment 1 | CS 156, Fall 2019\n",
+    "### Berfin Karaman"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 1. Moore's Law\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] File b'/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt' does not exist: b'/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-5-a54e1fce55fb>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;31m#import the data from\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m  \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread_csv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m\"testID\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"bench\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"base\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"peak\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0mdata\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mDataFrame\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36mparser_f\u001b[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, tupleize_cols, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)\u001b[0m\n\u001b[1;32m    700\u001b[0m                     skip_blank_lines=skip_blank_lines)\n\u001b[1;32m    701\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 702\u001b[0;31m         \u001b[0;32mreturn\u001b[0m \u001b[0m_read\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    703\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    704\u001b[0m     \u001b[0mparser_f\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m__name__\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mname\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m_read\u001b[0;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[1;32m    427\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    428\u001b[0m     \u001b[0;31m# Create the parser.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 429\u001b[0;31m     \u001b[0mparser\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mTextFileReader\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    430\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    431\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0mchunksize\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0miterator\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, f, engine, **kwds)\u001b[0m\n\u001b[1;32m    893\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moptions\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'has_index_names'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'has_index_names'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    894\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 895\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_make_engine\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    896\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    897\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mclose\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m_make_engine\u001b[0;34m(self, engine)\u001b[0m\n\u001b[1;32m   1120\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_make_engine\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mengine\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'c'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1121\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mengine\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'c'\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1122\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mCParserWrapper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moptions\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1123\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1124\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mengine\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m'python'\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.7/site-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, src, **kwds)\u001b[0m\n\u001b[1;32m   1851\u001b[0m         \u001b[0mkwds\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'usecols'\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0musecols\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1852\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1853\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reader\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mparsers\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mTextReader\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msrc\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1854\u001b[0m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munnamed_cols\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reader\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munnamed_cols\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1855\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mpandas/_libs/parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader.__cinit__\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32mpandas/_libs/parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._setup_parser_source\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] File b'/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt' does not exist: b'/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt'"
+     ]
+    }
+   ],
+   "source": [
+    "#Importing the data \n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "#import the data from\n",
+    "data =  pd.read_csv(\"/Users/berfinkaraman/Desktop/CS156/specdata20120207/benchmarks.txt\")\n",
+    "data.columns = [\"testID\",\"bench\",\"base\",\"peak\"]\n",
+    "data = pd.DataFrame(data,columns=data.columns)\n",
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Extract the date and base speed for a benchmark of your choice.\n",
+    "\n",
+    "#Examining the data to extract date\n",
+    "#print (data)\n",
+    "\n",
+    "#After I printed all the testIDs, I realzied that there are invalid dates such as p046\n",
+    "#I will drop these rows to clean the data\n",
+    "data = data.drop(data.index[9600:9941], axis=0)\n",
+    "\n",
+    "#Chosing a benchmark\n",
+    "benchmark = \"tomcatv\"\n",
+    "data = data[data.bench.str.contains(benchmark) == True]\n",
+    "data.head()\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import datetime as dt\n",
+    "\n",
+    "#Date is the middle part of the test id. We need to obtain the date from the string\n",
+    "#example: 981007 will convert as 07/10/1998\n",
+    "#I will define converter to convert test_id into dates\n",
+    "\n",
+    "def converter(test_id):\n",
+    "    #removes the \"cpu95-\"\n",
+    "    date=test_id[6:]\n",
+    "    #removes the part after \"-\"\n",
+    "    date=date[:date.find('-')]\n",
+    "    #if year is 4 digit, gets rid of first two digit to uniform the data\n",
+    "    if len(date) > 6:\n",
+    "        date = date[2:]\n",
+    "    #returns the string as a time stamp\n",
+    "    return dt.datetime.strptime(date, \"%y%m%d\")\n",
+    "\n",
+    "#empty list to store the dates\n",
+    "dates = []\n",
+    "\n",
+    "#for loop to iterate the converter for all the row in the 'testid' columns\n",
+    "for row in data['testID']:\n",
+    "    dates.append(converter(row))\n",
+    "\n",
+    "data['dates']=dates    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'data' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-11-6441ae00ab2b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfigure\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfigsize\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m20\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m12\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0;31m#scatter plot\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 8\u001b[0;31m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mscatter\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'dates'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mdata\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'base'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      9\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtitle\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Semi-log plot of Base for tomcatv'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mxlabel\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Dates'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'data' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "from matplotlib import pyplot as plt\n",
+    "from pandas.plotting import register_matplotlib_converters\n",
+    "register_matplotlib_converters()\n",
+    "\n",
+    "#figure size\n",
+    "plt.figure(figsize=(20,12))\n",
+    "#scatter plot\n",
+    "plt.scatter(data['dates'], data['base'])\n",
+    "plt.title('Semi-log plot of Base for tomcatv')\n",
+    "plt.xlabel('Dates')\n",
+    "#for semi-log graph, I decided to have y-axis as log because logarithm of the dates will not add \n",
+    "#any value to the analysis\n",
+    "plt.yscale('log')\n",
+    "plt.ylabel('Base')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Train a linear model to fit your plot\n",
+    "\n",
+    "import numpy as np\n",
+    "from sklearn import datasets, linear_model\n",
+    "from sklearn.metrics import mean_squared_error, r2_score\n",
+    "from sklearn.model_selection  import train_test_split as split\n",
+    "from sklearn.metrics import mean_absolute_error\n",
+    "from sklearn.metrics import median_absolute_error\n",
+    "\n",
+    "#getting the log value for base\n",
+    "data['log_base'] =  np.log(data.base)\n",
+    "\n",
+    "#defining the x variable as dates for the training data\n",
+    "X=data['dates']\n",
+    "#converting timestamp to fit the required types by LinearRegression()\n",
+    "#converting the array into list for LinearRegression()\n",
+    "X= list(map(lambda x: [int(round(x.timestamp()))], X))\n",
+    "#defining the y variable as log_base for the training data\n",
+    "Y=data['log_base']\n",
+    "#converting the array into list for LinearRegression()\n",
+    "Y= list(Y)\n",
+    "\n",
+    "#splitting the data for training as test and train\n",
+    "X_train, X_test, Y_train, Y_test = split(X, Y, test_size=0.25)\n",
+    "\n",
+    "#linear regression model\n",
+    "lm = linear_model.LinearRegression()\n",
+    "lm.fit(X_train, Y_train)\n",
+    "#prediction of y according X_test by using lm\n",
+    "Y_predict = lm.predict(X_test)\n",
+    "\n",
+    "print(\"Mean squared error (MSE):\" , mean_squared_error(Y_test, Y_predict))\n",
+    "print('The coefficient of determination (or R²):' , r2_score(Y_test, Y_predict))\n",
+    "print(\"Mean absulate error (MAE):\" , mean_absolute_error(Y_test, Y_predict))\n",
+    "print(\"Median absulate error:\" , median_absolute_error(Y_test, Y_predict))\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#plotting the previous scatter plot with the predicted base values\n",
+    "\n",
+    "base_predict = lm.predict(X)\n",
+    "\n",
+    "plt.figure(figsize=(20,12))\n",
+    "plt.scatter(X, base_predict, color=\"red\")\n",
+    "plt.scatter(X, Y)\n",
+    "plt.title('Semi-log plot of Base for tomcatv with regression line')\n",
+    "plt.xlabel('Dates')\n",
+    "plt.ylabel('Base')\n",
+    "plt.show()\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### How well is Moore's Law holding up?\n",
+    "\n",
+    "According to Wikipedia, \"Moore's law is the observation that the number of transistors in a dense integrated circuit doubles about every two years.\" Since the data is scatter around, it is hard to talk about an over arching trend. When, I used linear regression model to predict and plot the base values, I found out that there is a positive correlation between base and the dates. However, it is not a strong correlation since the data does not fit the prediction line properly. Therefore, in this specific benchmark which is tomcatv, Moore's law does not hold.\n",
+    "\n",
+    "\n",
+    "\n",
+    "#### Citations:\n",
+    "\n",
+    "Wikipedia. “Moore's Law.” Wikipedia, 2019, en.wikipedia.org/wiki/Moore%27s_law."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### MNIST Digits"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'plt' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-10-0d5682e63ed0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0;31m#ploting 1 and 7 as the examples since they are the two digit classes I choose\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 10\u001b[0;31m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mgray\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmatshow\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdigits\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mimages\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtitle\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Training: 1'\u001b[0m \u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'plt' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "#importing the digits data set (MNSKI) \n",
+    "\n",
+    "import sklearn.datasets as datasets\n",
+    "from sklearn.datasets import load_digits \n",
+    "\n",
+    "sklearn.datasets.load_digits(n_class=10, return_X_y=False)\n",
+    "digits = datasets.load_digits()\n",
+    "\n",
+    "#ploting 1 and 7 as the examples since they are the two digit classes I choose \n",
+    "plt.gray() \n",
+    "plt.matshow(digits.images[1])\n",
+    "plt.title('Training: 1' )\n",
+    "plt.matshow(digits.images[7])\n",
+    "plt.title('Training: 7')\n",
+    "plt.show() \n",
+    "\n",
+    "#citation: \n",
+    "#'scikit-learn developers. “Sklearn.datasets.load_digits.” Scikit, 2019, \n",
+    "#scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits.'\n",
+    "\n",
+    "#citation:\n",
+    "#'scikit-learn developers. “Digits Classification Exercise.” Scikit, 2019, \n",
+    "#https://scikit-learn.org/stable/auto_examples/exercises/plot_digits_classification_exercise.html#sphx-glr-auto-examples-exercises-plot-digits-classification-exercise-py"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'digits' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-7-cf5748857644>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     11\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 13\u001b[0;31m \u001b[0mlength\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdigits\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtarget\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     14\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;31m#for loop to store data and targets for the digits 1 and 7\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'digits' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "from sklearn import neighbors, metrics\n",
+    "from sklearn.metrics import accuracy_score\n",
+    "from sklearn.model_selection import cross_val_score\n",
+    "\n",
+    "#defining the k \n",
+    "k_neighbors = 3\n",
+    "\n",
+    "#creating emty lists to store x and y\n",
+    "x = []\n",
+    "y = []\n",
+    "\n",
+    "\n",
+    "length = len(digits.target)\n",
+    "\n",
+    "#for loop to store data and targets for the digits 1 and 7\n",
+    "for i in range(length): \n",
+    "    if any(digits.target) == 1:\n",
+    "        x.append(digits.data[i])\n",
+    "        y.append(digits.target[i])\n",
+    "    elif any(digits.target) == 7:\n",
+    "        x.append(digits.data[i])\n",
+    "        y.append(digits.target[i])\n",
+    "\n",
+    "#splitting the data for training\n",
+    "x_train, x_test, y_train, y_test = split(x, y, test_size=0.5)\n",
+    "\n",
+    "#defining and fitting the knn model \n",
+    "knn=neighbors.KNeighborsClassifier(k_neighbors, weights='uniform')\n",
+    "knn.fit(x_train, y_train)\n",
+    "#prediction of y by using x_test\n",
+    "pred = knn.predict(x_test)\n",
+    "\n",
+    "#printing the evaluation to find the error rate\n",
+    "print(\"Classification report for kNN %s:\\n%s\\n\"% (knn, metrics.classification_report(y_test, pred)))\n",
+    "print(\"Confusion matrix:\\n%s\" % metrics.confusion_matrix(y_test, pred))\n",
+    "\n",
+    "\n",
+    "#citation:\n",
+    "#'scikit-learn developers. “Digits Classification Exercise.” Scikit, 2019, \n",
+    "#https://scikit-learn.org/stable/auto_examples/exercises/plot_digits_classification_exercise.html\n",
+    "#sphx-glr-auto-examples-exercises-plot-digits-classification-exercise-py\n",
+    "\n",
+    "#'scikit-learn developers. “Recognizing hand-written digits.” Scikit, 2019, \n",
+    "#https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'x_train' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-8-3650ddd253b9>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx_train\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshape\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx_test\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshape\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'x_train' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "print(x_train.shape)\n",
+    "print(x_test.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Error rate\n",
+    "\n",
+    "According to metrics classification report, the average precision and recall is 0.98 which means that the error rate is around 2%. 2% percent error rate is pretty low thus we can say that KNN created a good predictive model.\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
